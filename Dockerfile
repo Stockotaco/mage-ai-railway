@@ -7,8 +7,11 @@ FROM mageai/mageai:${MAGE_AI_VERSION}
 
 # Fix numpy/scipy compatibility issue
 # This resolves the "All ufuncs must have type numpy.ufunc" error
-# Force reinstall compatible versions
-RUN pip install --force-reinstall --no-cache-dir "numpy>=1.24.0,<2.0" "scipy>=1.10.0,<2.0"
+# Uninstall scipy and numpy, then reinstall compatible versions
+# This ensures scipy gets a wheel compatible with the numpy version
+RUN pip uninstall -y scipy numpy && \
+    pip install --no-cache-dir numpy==1.26.4 && \
+    pip install --no-cache-dir scipy==1.11.4
 
 # Expose the default Mage AI port
 EXPOSE 6789
