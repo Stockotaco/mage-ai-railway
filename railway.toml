@@ -1,0 +1,17 @@
+# Railway configuration file
+# This file allows you to configure build arguments and deployment settings
+
+[build]
+builder = "dockerfile"
+dockerfilePath = "Dockerfile"
+
+# Build arguments - set MAGE_AI_VERSION here or via Railway dashboard
+# Uncomment and modify the version below, or set it via Railway's environment variables
+# [build.buildArgs]
+# MAGE_AI_VERSION = "0.9.88"
+
+# Deploy settings
+[deploy]
+startCommand = ""
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
