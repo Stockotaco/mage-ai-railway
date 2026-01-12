@@ -99,6 +99,7 @@ Mage AI runs on port `6789` by default. Railway will automatically map this to a
 - **Build fails:** Make sure the version you specified exists on Docker Hub
 - **Service won't start:** Check Railway logs for error messages
 - **Can't access the UI:** Ensure the service is deployed and the URL is correct
+- **numpy/scipy compatibility error:** If you see `ValueError: All ufuncs must have type numpy.ufunc`, the Dockerfile automatically fixes this by reinstalling compatible versions of numpy and scipy. If the issue persists, try a different Mage AI version.
 
 ## License
 
